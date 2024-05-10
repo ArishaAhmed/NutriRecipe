@@ -1,0 +1,129 @@
+// react code of login page
+
+import React from 'react';
+import './index.css';
+import foodImage from './foodImage.jpeg';
+
+function MyComponent() {
+  return (
+    <div className="login-container">
+      <img src={foodImage} alt="Food Background" className="food-background" />
+      <div className="login-form">
+        <h1>Login into your Account</h1>
+        <form>
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+          <label htmlFor="password">Password:</label><br></br>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+          <div className="checkbox-container">
+            <input type="checkbox" id="remember-me" name="remember-me" />
+            <label htmlFor="remember-me">Remember me</label>
+          </div>
+          <a href="#">Forgot Password?</a>
+          <button type="submit">Login</button>
+          <button type="submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default MyComponent;
+
+
+
+
+//CSS of login page
+
+.login-container {
+  /* display: flex; Allow for side-by-side positioning */
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.login-container img.food-background {
+  width: 50%; /* Image takes up 50% of the screen */
+  height: 100vh; /* Image stretches to fill viewport height */
+  object-fit: cover; /* Ensure entire image is visible and scaled to fit */
+  position: absolute; /* Layer the image behind the form content */
+  top: 0; /* Align image top with container */
+  left: 0; /* Align image left with container */
+  z-index: -1; /* Place the background image behind the form content */
+}
+
+.login-form {
+  display: flex;
+  /* flex: 0 0 auto; Prevent form from expanding */
+  margin-left: 3000em; /* Push form to the right */
+  flex-direction: column;
+  align-items: right;
+  justify-content: right; /* Center form content vertically */
+  width: 40%; /* Form takes up 50% of the screen */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  position: absolute; /* Position the form absolutely */
+  top: 50%; /*Move the form to the vertical center */
+  right: 0; /* Align the form to the rightmost of the page */
+  transform: translate(-5%, -50%); /* Center the form horizontally and vertically */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex; /* Arrange form elements in a column */
+  flex-direction: column;
+  width: 100%; /* Form elements fill the width of the form container */
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+p {
+  text-align: center;
+}
