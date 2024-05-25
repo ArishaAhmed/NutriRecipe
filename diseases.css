@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .main-content {
+    align-self: center;
+    display: flex;
+    margin-top: 45px;
+    width: 906px;
+    max-width: 100%;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 991px) {
+    .main-content {
+      margin-top: 40px;
+    }
+  }
+  
+  .title {
+    color: #000;
+    font: 500 60px Inria Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    font-weight: bolder;
+  }
+  
+  @media (max-width: 991px) {
+    .title {
+      max-width: 100%;
+    }
+  }
+  
+  .disease-categories {
+    margin-top: 43px;
+    
+  }
+  
+  @media (max-width: 991px) {
+    .disease-categories {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+  
+  .disease-section {
+    gap: 20px;
+    display: flex;
+  }
+  
+  @media (max-width: 991px) {
+    .disease-section {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  
+  .category {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 30%; /* Adjust as needed */
+    margin-left: 2%; /* Adjust as needed */
+    margin-bottom: 30px;
+    height: 400px; /* Fixed height for category tile */
+    
+  }
+  
+  @media (max-width: 991px) {
+    .category {
+      width: 100%; /* Stretch horizontally on smaller screens */
+      margin-left: 0;
+      margin-bottom: 20px;
+      height: 250px;
+    }
+  }
+  
+  .category-card {
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(119, 72, 72, 0.25), 0 4px 12px rgba(0, 0, 0, 0.25), 0 13px 30px rgba(119, 89, 89, 0.2);
+    border: 6px solid rgba(0, 0, 0, 0.34);
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    width: 100%;
+    padding: 29px 37px;
+    height: 100%; /* Ensure category card fills the entire height of the category */
+  }
+  
+  .card-title {
+    font: 30px Inika, sans-serif;
+    font-weight: bold;
+  }
+  
+  .card-description {
+    font-family: Inria Sans, sans-serif;
+    font-size: 16px;
+    margin-top: 24px;
+    text-align: left;
+    font-weight: bold;
+    flex-grow: 1; /* Allow description to expand to fill remaining space */
+  }
+  
+  .view-recipes {
+    font-family: Inder, sans-serif;
+    font-weight: bolder;
+    font-size: 18px;
+    justify-content: center;
+    border-radius: 9px;
+    background-color: #ffe054;
+    align-self: center; /* Center button horizontally */
+    margin-top: auto; /* Push button to the bottom */
+    padding: 10px 20px;
+  }
+  
+  .view-recipes:hover {
+    background-color: #ffc005;
+    cursor: pointer;
+  }
+  
