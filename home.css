@@ -1,0 +1,67 @@
+*
+{
+        margin:0;
+        padding:0;
+        box-sizing: border-box; /* Add box-sizing to include padding and border in element's total width */
+}
+
+/* Your existing CSS rules */
+
+/* Additional styles to prevent horizontal scrolling */
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling on the entire page */
+}
+
+
+.container {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+
+
+    
+    .about-us-content {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1050px;
+        margin-top: 43px;
+        padding: 0 20px;
+        color: #000;
+        font-weight: 400;
+      }
+
+      @media (max-width: 991px) {
+        .about-us-content {
+          max-width: 100%;
+          margin-top: 40px;
+        }
+      }
+
+      .about-us-title {
+        font: bold 50px Inria Sans, sans-serif;
+      }
+
+      .about-us-description {
+        margin-top: 39px;
+        font: 20px Inria Sans, sans-serif;
+        text-align: justify;
+      }
+
+      .about-us-image {
+        width: 100%;
+        aspect-ratio: 2.5;
+        object-fit: auto;
+        object-position: center;
+        margin-top: 35px;
+      }
+
+      @media (max-width: 991px) {
+        .about-us-image {
+          max-width: 100%;
+        }
+      }
