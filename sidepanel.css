@@ -1,0 +1,36 @@
+.side-panel {
+    width: 200px;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+  }
+  
+  .side-panel button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .side-panel button:hover {
+    background-color: #ddd;
+  }
+  
+  @media (max-width: 991px) {
+    .side-panel {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      border-right: none;
+      border-bottom: 1px solid #ccc;
+    }
+  
+    .side-panel button {
+      width: auto;
+      margin: 0;
+      flex-grow: 1;
+    }
+  }
+  
