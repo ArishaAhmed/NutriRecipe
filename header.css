@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap');
+
+
 *{
   margin:0;
   padding:0;
@@ -26,9 +29,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
   background-color: #12d30b; /* Green background color for the Navbar */
-  
+  font-family: 'Inria Sans', sans-serif;
+
   
 }
 
@@ -36,12 +39,12 @@
 .navbar-brand img {
   height: 150px; /* Increase the logo height */
   background-color: transparent; /* Set the background color of the navbar-brand to transparent */
-
+  padding: 10px;
 }
 
 .navbar-links {
   display: flex;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .navbar-links a {
@@ -52,6 +55,8 @@
   font-size:  22px;
   font-weight: bold;
   margin-right: 34px;
+  font-family: 'Inria Sans', sans-serif;
+
 }
 
 .navbar-links a:hover {
