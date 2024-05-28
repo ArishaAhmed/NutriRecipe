@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import Footer from './footer.jsx';
-import Navbar from './header.jsx';
-import './diseases.css';
+
+import './Diseases.css';
 
 function Diseases(){
 
   return (
     <>
-      <Navbar />
+      
       <main className="container">
       
       <section className="main-content">
@@ -103,7 +102,7 @@ function Diseases(){
           </section>
       </section>
      </main>
-      <Footer />
+      
     </>
   );
 }
