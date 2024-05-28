@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './header';
-import Footer from './footer';
 import SidePanel from './sidepanel';
-import './menu.css';
-
+import './Menu.css';
 
 function MenuPage() {
   const [selectedCategory, setSelectedCategory] = useState('breakfast');
@@ -17,22 +14,17 @@ function MenuPage() {
   }, [selectedCategory]);
 
   return (
-    <>
-      
-      <main className="menu-container">
-        <SidePanel setSelectedCategory={setSelectedCategory} />
-        <section className="recipes-container">
-          {recipes.map((recipe, index) => (
-            <div className="recipe-card" key={index}>
-              <h2>{recipe.Dish}</h2>
-              
-              {recipe.Image && <img src={recipe.Image} alt={recipe.Dish} />}
-            </div>
-          ))}
-        </section>
-      </main>
-      
-    </>
+    <div className="menu-container">
+      <SidePanel selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+      <section className="recipes-container">
+        {recipes.map((recipe, index) => (
+          <div className="recipe-card" key={index}>
+            <h2>{recipe.Dish}</h2>
+            {recipe.Image && <img src={recipe.Image} alt={recipe.Dish} />}
+          </div>
+        ))}
+      </section>
+    </div>
   );
 }
 
