@@ -1,5 +1,5 @@
 import React from 'react';
-import './footer.css';
+import './Footer.css';
 
 function SocialMediaLink({ href, alt, text }) {
   return (
@@ -20,7 +20,7 @@ const socialMediaLinks = [
 ];
 
 const gmail_links = [
-  { href: "mailto:hfatima2806@gmail.com", alt: "https://cdn.builder.io/api/v1/image/assets/TEMP/a3afb87977ce0a08dacd0899b8dbc511518dcba5cc126b42c9628e7eb4ae2694?apiKey=1aa57a3556434780b9855b4a3f862b6d&", text: "info.official@NutriRecipes" }
+  { href: "mailto:hfatima2806@gmail.com", alt: "https://cdn.builder.io/api/v1/image/assets/TEMP/a3afb87977ce0a08dacd0899b8dbc511518dcba5cc126b42c9628e7eb4ae2694?apiKey=1aa57a3556434780b9855b4a3f862b6d&", text: "info.official@NutriRecipes.com" }
 ];
 
 function Footer() {
