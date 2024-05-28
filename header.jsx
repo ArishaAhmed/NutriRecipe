@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 import { AiOutlineMenuUnfold, AiOutlineClose } from 'react-icons/ai';
-import logo from './logo.png';
+import logo from './logo.svg';
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
@@ -17,6 +17,7 @@ const Header = () => {
   };
 
   return (
+    <>
     <nav className="navbar">
       <div className="navbar-brand">
         <img src={logo} alt="Logo" className="logo" />
@@ -30,6 +31,7 @@ const Header = () => {
         {menu ? <AiOutlineClose size={25} /> : <AiOutlineMenuUnfold size={25} />}
       </div>
     </nav>
+    </>
   );
 };
 
