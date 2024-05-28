@@ -1,67 +1,76 @@
-*
-{
-        margin:0;
-        padding:0;
-        box-sizing: border-box; /* Add box-sizing to include padding and border in element's total width */
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Your existing CSS rules */
-
-/* Additional styles to prevent horizontal scrolling */
 html, body {
-    overflow-x: hidden; /* Prevent horizontal scrolling on the entire page */
+  overflow-x: hidden;
 }
-
 
 .container {
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
 
+.about-us-content {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1050px;
+  margin-top: 80px; /* Adjust margin top to prevent overlap with header */
+  padding: 0 20px;
+  color: #000;
+  font-weight: 400;
+}
 
-    
-    .about-us-content {
-        align-self: center;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 1050px;
-        margin-top: 43px;
-        padding: 0 20px;
-        color: #000;
-        font-weight: 400;
-      }
+.about-us-title {
+  font-family: 'Inria Sans', sans-serif;
+  font-weight: bolder;
+  font-size: 50px;
+}
 
-      @media (max-width: 991px) {
-        .about-us-content {
-          max-width: 100%;
-          margin-top: 40px;
-        }
-      }
+.about-us-description {
+  margin-top: 39px;
+  font-family: 'Inria Sans', sans-serif;
+  text-align: justify;
+  font-size: 20px;
+}
 
-      .about-us-title {
-        font: bold 50px Inria Sans, sans-serif;
-      }
+.about-us-image {
+  width: 100%;
+  aspect-ratio: 2.5;
+  object-fit: auto;
+  object-position: center;
+  margin-top: 35px;
+}
 
-      .about-us-description {
-        margin-top: 39px;
-        font: 20px Inria Sans, sans-serif;
-        text-align: justify;
-      }
+@media (max-width: 991px) {
+  .about-us-content {
+    margin-top: 40px; /* Adjust margin top for smaller screens */
+  }
 
-      .about-us-image {
-        width: 100%;
-        aspect-ratio: 2.5;
-        object-fit: auto;
-        object-position: center;
-        margin-top: 35px;
-      }
+  .about-us-title {
+    font-size: 40px; /* Adjust font size for smaller screens */
+  }
 
-      @media (max-width: 991px) {
-        .about-us-image {
-          max-width: 100%;
-        }
-      }
+  .about-us-image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us-content {
+    margin-top: 40px; /* Adjust margin top for smaller screens */
+  }
+
+  .about-us-title {
+    font-size: 40px;
+  }
+}
