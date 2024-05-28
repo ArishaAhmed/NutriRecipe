@@ -1,0 +1,84 @@
+.div {
+    color: darkblue; 
+    font-size: 56px;
+    font-family: 'Inria Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    text-align: left; 
+    margin-top:35px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.container {
+    font-family: Arial, sans-serif;
+    margin-left: 30 auto;
+    padding: 10px;
+    max-width: 1200;
+}
+
+/* .header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 2em;
+    color: darkblue; 
+}  */
+
+.content {
+    display: flex;
+    flex-direction: column; /* Arrange sections in a single column */
+    align-items: center; /* Center align the sections */
+}
+
+.section {
+    width: 100%; /* Full width of the container */
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid transparent; /* Invisible border */
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light background for sections */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.section:hover {
+    background-color: lightgreen; /* Light green color on hover */
+    border-color: #ddd; /* Visible border on hover */
+}
+
+.section h2 {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    color: darkblue; /* Dark blue color for section headings */
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section li {
+    margin-bottom: 5px;
+    line-height: 1.5; /* Add some line height for better readability */
+    color: darkblue; /* Dark blue color for the list items */
+    position: relative; 
+    
+}
+
+/* Make the text before the colon bold */
+.section li::before {
+    content: attr(data-text);
+    font-weight: bold;
+    color: darkblue; 
+    content: '•'; 
+    position: relative;
+    left: 0; /* Position it at the left edge of the li */
+    
+}
+
+
+.section li[data-text] {
+    font-weight: normal;
+    color: darkblue; /* Ensure the colon and following text are also dark blue */
+    
+}
