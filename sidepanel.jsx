@@ -2,23 +2,20 @@ import React from 'react';
 import './sidepanel.css';
 
 const SidePanel = ({ selectedCategory, setSelectedCategory }) => {
+  const categories = ['breakfast', 'lunch', 'dinner', 'dessert', 'snack'];
+
   return (
     <div className="side-panel">
-      <button onClick={() => setSelectedCategory('breakfast')}>
-        Breakfast
-      </button>
-      <button onClick={() => setSelectedCategory('lunch')}>
-        Lunch
-      </button>
-      <button onClick={() => setSelectedCategory('dinner')}>
-        Dinner
-      </button>
-      <button onClick={() => setSelectedCategory('dessert')}>
-        Dessert
-      </button>
-      <button onClick={() => setSelectedCategory('snack')}>
-        Snack
-      </button>
+      {categories.map(category => (
+        <a
+          key={category}
+          href="#!"
+          className={selectedCategory === category ? 'selected' : ''}
+          onClick={() => setSelectedCategory(category)}
+        >
+          {category.charAt(0).toUpperCase() + category.slice(1)}
+        </a>
+      ))}
     </div>
   );
 };
