@@ -32,13 +32,9 @@ const Recipe = ({ selectedRecipe }) => {
         <h2>Instructions</h2>
         <p>{selectedRecipe.Instructions}</p>
       </div>
-
-      <div className="taste">
-        <h2>Taste</h2>
-        <p>{selectedRecipe.Taste}</p>
-      </div>
     </div>
   );
 };
 
 export default Recipe;
+
