@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
 import SidePanel from './sidepanel';
 import './Menu.css';
 
-function MenuPage() {
-  const { category } = useParams(); // Use useParams to get the category from the URL
-  const [selectedSubCategory, setSelectedSubCategory] = useState(''); // State to track the selected subcategory
+function MenuPage({ setSelectedRecipe }) {
+  const { category } = useParams();
+  const navigate = useNavigate(); // Use useNavigate for navigation
+  const [selectedSubCategory, setSelectedSubCategory] = useState('');
   const [recipes, setRecipes] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track if user is logged in
+  const [showPrompt, setShowPrompt] = useState(false); // State to control the prompt visibility
 
   useEffect(() => {
     fetchRecipes();
-  }, [category, selectedSubCategory]); // Fetch recipes when category or subcategory changes
+  }, [category, selectedSubCategory]);
 
   const fetchRecipes = () => {
     let apiUrl = `http://localhost:8000/menu/${category}`;
@@ -20,8 +23,29 @@ function MenuPage() {
 
     fetch(apiUrl)
       .then(response => response.json())
-      .then(data => setRecipes(data))
+      .then(data => {
+        console.log('Fetched recipes:', data); // Debugging log
+        setRecipes(data);
+      })
       .catch(error => console.error('Error fetching recipes:', error));
+  };
+
+  const handleViewRecipe = (recipe) => {
+    if (!isLoggedIn) {
+      setShowPrompt(true);
+    } else {
+      setSelectedRecipe(recipe);
+      navigate(`/${category}/${recipe.Dish}`); // Use navigate instead of history.push
+    }
+  };
+
+  const handleLoginSignup = () => {
+    // Redirect to login/signup page
+    navigate('/LoginForm.jsx');
+  };
+
+  const closePrompt = () => {
+    setShowPrompt(false);
   };
 
   return (
@@ -30,12 +54,23 @@ function MenuPage() {
         <SidePanel selectedCategory={selectedSubCategory} setSelectedCategory={setSelectedSubCategory} />
         <section className="recipes-container">
           {recipes.map((recipe, index) => (
-            <div className="recipe-card" key={index}>
+            <div className="recipe-card" key={index} onClick={() => handleViewRecipe(recipe)}>
+              {recipe['Image Link'] && (
+                <img src={recipe['Image Link']} alt={recipe.Dish} className="recipe-image" />
+              )}
               <h2>{recipe.Dish}</h2>
-              {recipe['Image Link'] && <img src={recipe['Image Link']} alt={recipe.Dish} />}
             </div>
           ))}
         </section>
+        {showPrompt && (
+          <div className="popup-overlay">
+            <div className="login-prompt">
+              <p>You are not logged in. To view the entire recipe, please log in or sign up.</p>
+              <button onClick={handleLoginSignup}>Login / Signup</button>
+              <button className="close-button" onClick={closePrompt}>Close</button>
+            </div>
+          </div>
+        )}
       </main>
     </>
   );
