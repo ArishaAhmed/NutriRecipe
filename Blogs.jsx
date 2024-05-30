@@ -7,9 +7,7 @@ function BlogsPage() {
            <div  className="container">
             <div className="div">Blogs</div>
             
-                {/* <div className="header">
-                    <h1>Healthy Lifestyle Tips</h1>
-                </div> */}
+                
                 <div className="content">
                     <div className="section">
                         <h2>5 Easy Ways to Eat More Vegetables</h2>
