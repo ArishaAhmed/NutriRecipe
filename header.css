@@ -1,45 +1,46 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap');
 
-
-*{
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
-/* 
+
+
 .header {
-  position: relative; 
-}/* Ensure relative positioning for absolute positioning of the Navbar */
-
-
-.header-image {
-  width: 100%; /* Stretch the image to the full width */
   position: relative;
-  z-index: 2; /* Ensure the header image is above the Navbar */
-} */
-
-
-.navbar {
-  position: absolute; /* Position the Navbar relative to the header */
-  width: 100%; /* Make Navbar stretch to full width */
-
+  width: 100%;
+  background-image: url('./BackImage.png'); 
+  background-size: cover;
+  background-position: center;
+  height: 250px;
 }
-
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #12d30b; /* Green background color for the Navbar */
+  background-color: rgba(18, 211, 11, 0.9); 
   font-family: 'Inria Sans', sans-serif;
-
-  
+  padding: 10px 20px;
+  width: 100%;
+  position: absolute; 
+  bottom: 0; 
+  height: 70px;
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: transparent;
+  padding: 10px;
+}
 
 .navbar-brand img {
-  height: 150px; /* Increase the logo height */
-  background-color: transparent; /* Set the background color of the navbar-brand to transparent */
-  padding: 10px;
+  height: 90px;
+  background-color: transparent;
+  margin-top: 30px;
 }
 
 .navbar-links {
@@ -48,19 +49,18 @@
 }
 
 .navbar-links a {
-  margin-left: 1.0rem;
+  margin-left: 1rem;
   text-decoration: none;
-  color: #0a0101; /* Change tab name color to white */
+  color: #0a0101; 
   transition: color 0.3s;
-  font-size:  22px;
+  font-size: 22px;
   font-weight: bold;
   margin-right: 34px;
   font-family: 'Inria Sans', sans-serif;
-
 }
 
 .navbar-links a:hover {
-  color: #f76868; /* Change tab name hover color */
+  color: white; 
 }
 
 .menu-icon {
@@ -68,29 +68,119 @@
   cursor: pointer;
 }
 
+.login-button {
+  position: relative;
+  padding-left: 92%;
+  top : 5%;
+}
+
+.login-button a {
+  text-decoration: none;
+  color: white; 
+  font-size: 25px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.login-button a:hover {
+  color: rgb(190, 174, 174); 
+}
+
+
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px; 
   }
 
   .navbar-links {
     display: none;
-    width: 100%;
-    justify-content: space-around;
-    margin-top: 1rem;
+    flex-direction: column;
+    position: absolute;
+    top: 70px; 
+    right: 0;
+    width: 20%;
+    padding: 10px 20px;
   }
 
   .navbar-links.active {
     display: flex;
+    background-color: rgba(153, 228, 150, 0.9); 
   }
 
   .navbar-links a {
     margin: 1rem 0;
+    font-size: 18px;
   }
 
   .menu-icon {
     display: block;
+  }
+
+  .navbar-brand img {
+    height: 60px;
+    margin-top: 30px;
+  }
+
+  .login-button {
+    position: relative;
+    padding-left: 90%;
+    top : 5%;
+  }
+  
+  .login-button a {
+    text-decoration: none;
+    color: white; 
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .login-button a:hover {
+    color: rgb(190, 174, 174); 
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-links a {
+    font-size: 14px;
+  }
+
+  .navbar-brand img {
+    height: 50px;
+  }
+  
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px; 
+    right: 0;
+    width: 25%;
+    padding: 10px 20px;
+  }
+
+  .navbar-links.active {
+    display: flex;
+    background-color: rgba(153, 228, 150, 0.9); 
+  }
+  .login-button {
+    position: relative;
+    padding-left: 80%;
+    top : 5%;
+  }
+  
+  .login-button a {
+    text-decoration: none;
+    color: white; 
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .login-button a:hover {
+    color: rgb(190, 174, 174); 
   }
 }
