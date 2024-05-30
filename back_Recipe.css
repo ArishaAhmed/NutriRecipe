@@ -1,0 +1,46 @@
+.recipe-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .recipe-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .recipe-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .ingredients, .instructions, .taste {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .ingredients h2, .instructions h2, .taste h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .ingredients ul, .instructions ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .recipe-image {
+    max-width: 300px;
+  }
+  
+  .recipe-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .taste p {
+    font-size: 1.2rem;
+  }
+  
