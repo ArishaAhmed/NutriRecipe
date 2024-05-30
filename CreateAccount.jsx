@@ -1,9 +1,8 @@
-//////////////////////////////////////////////////////////REACT CODE//////////////////////////////////////////////////////////////////
 import React, { useState } from "react";
-import './index.css';
+import './CreateAccount.css';
 import foodImage from './foodImage.jpeg';
 
-function MyComponent() {
+function CreateAccount() {
   const [formData, setFormData] = useState({
     firstName: "",
     email: "",
@@ -86,82 +85,5 @@ function MyComponent() {
   );
 }
 
-export default MyComponent;
-
-//////////////////////////////////////////////////////////////////////////////////////CSS CODE//////////////////////////////////////////////////////////////////////////////////////////
-.main-container {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-}
-
-.main-container img.food-background {
-  width: 50%;
-  height: 100vh;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-
-.form-container {
-  display: flex;
-  /* flex: 0 0 auto; Prevent form from expanding */
-  margin-left: 3000em; /* Push form to the right */
-  flex-direction: column;
-  align-items: right;
-  justify-content: right; /* Center form content vertically */
-  width: 40%; /* Form takes up 50% of the screen */
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-  position: absolute; /* Position the form absolutely */
-  top: 50%; /*Move the form to the vertical center */
-  right: 0; /* Align the form to the rightmost of the page */
-  transform: translate(-5%, -50%);
-}
-
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-label {
-  margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
-
-
-button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  border-radius: 4px;
-}
+export default CreateAccount;
 
