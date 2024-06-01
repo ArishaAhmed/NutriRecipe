@@ -32,7 +32,6 @@ function Footer() {
             <p className="footer-description">Healthy & tasty nutrient-rich recipes which are easy to prepare and tested. Boost your energy levels and simply feel great!</p>
             <p className="contact-us-title">Contact us:</p>
             <div className="contact-info">
-              {/* Gmail icon */}
               <a href={gmail_links[0].href} target="_blank" rel="noopener noreferrer">
                 <img src={gmail_links[0].alt} alt="Email icon" className="email-icon" />
               </a>
@@ -48,8 +47,7 @@ function Footer() {
               {socialMediaLinks.map((link, index) => (
                 <SocialMediaLink key={index} href={link.href} alt={link.alt} text={link.text} />
               ))}
-              {/* Gmail link */}
-              <SocialMediaLink key={socialMediaLinks.length} href={gmail_links[0].href} alt={gmail_links[0].alt} text={gmail_links[0].text} />
+             
             </div>
           </div>
         </div>
