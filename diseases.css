@@ -78,7 +78,7 @@
     width: 100%; /* Stretch horizontally on smaller screens */
     margin-left: 0;
     margin-bottom: 20px;
-    height: 250px;
+    height: auto;
   }
 }
 
@@ -140,5 +140,8 @@
 @media (max-width: 991px) {
   .view-recipes {
     font-size: 14px;
+    margin-top: 10px; /* Add margin for separation */
+    position: static; /* Remove absolute positioning on smaller screens */
+    transform: none; 
   }
 }
