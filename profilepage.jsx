@@ -29,7 +29,6 @@ const Profile = () => {
                 if (userData) {
                     setFirstName(userData.firstName);
                     setLastName(userData.lastName);
-
                     if (userData.profile_picture) {
                         setProfilePictureUrl(userData.profile_picture);
                     }
@@ -53,9 +52,7 @@ const Profile = () => {
             newErrors.lastName = 'Last name must contain only letters and be up to 15 characters';
         }
 
-        if (!newPassword && confirmNewPassword) {
-            newErrors.newPassword = 'New password is required';
-        } else if (newPassword && !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/.test(newPassword)) {
+        if (newPassword && !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/.test(newPassword)) {
             newErrors.newPassword = 'Password must contain at least 8 characters, one letter, one number, and one special character';
         }
 
@@ -116,13 +113,9 @@ const Profile = () => {
             </div>
             <div className="profile-content">
                 <div className="profile-picture">
-                    <div className="profile-picture-placeholder">
-                        {profilePictureUrl ? (
-                            <img src={profilePictureUrl} alt="Profile" className="profile-picture-image" />
-                        ) : (
-                            <div className="profile-picture-placeholder-text">No profile picture</div>
-                        )}
-                    </div>
+                    {profilePictureUrl && (
+                        <img src={profilePictureUrl} alt="Profile" className="profile-picture-image" />
+                    )}
                     <input
                         type="file"
                         accept="image/png, image/jpeg"
