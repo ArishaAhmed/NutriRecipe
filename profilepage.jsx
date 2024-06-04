@@ -1,68 +1,109 @@
-import React, { useState, useRef } from 'react';
+
+import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 import './profilepage.css';
 
 const Profile = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [oldPassword, setOldPassword] = useState('');
+    const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmNewPassword, setConfirmNewPassword] = useState('');
     const [profilePicture, setProfilePicture] = useState(null);
+    const [profilePictureUrl, setProfilePictureUrl] = useState('');
     const [errors, setErrors] = useState({});
+    const [message, setMessage] = useState('');
 
     const fileInputRef = useRef(null);
 
-    const handleSaveChanges = () => {
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const response = await axios.get('http://localhost:5000/secure', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                });
+                const userData = response.data?.user;
+                if (userData) {
+                    setFirstName(userData.firstName);
+                    setLastName(userData.lastName);
+
+                    if (userData.profile_picture) {
+                        setProfilePictureUrl(userData.profile_picture);
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to fetch user data:', error);
+            }
+        };
+        fetchUserData();
+    }, []);
+
+    const handleSaveChanges = async (e) => {
+        e.preventDefault();
         const newErrors = {};
 
-        if (!firstName) {
-            newErrors.firstName = 'First name is required';
-        } else if (!/^[A-Za-z]+$/.test(firstName)) {
-            newErrors.firstName = 'First name must contain only letters';
+        if (firstName && !/^[A-Za-z]{3,15}$/.test(firstName)) {
+            newErrors.firstName = 'First name must contain only letters and be between 3 to 15 characters';
         }
 
-        if (!lastName) {
-            newErrors.lastName = 'Last name is required';
-        } else if (!/^[A-Za-z]+$/.test(lastName)) {
-            newErrors.lastName = 'Last name must contain only letters';
+        if (lastName && !/^[A-Za-z]{0,15}$/.test(lastName)) {
+            newErrors.lastName = 'Last name must contain only letters and be up to 15 characters';
         }
 
-        if (!oldPassword) {
-            newErrors.oldPassword = 'Old password is required';
-        }
-
-        if (!newPassword) {
+        if (!newPassword && confirmNewPassword) {
             newErrors.newPassword = 'New password is required';
-        } else if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(newPassword)) {
+        } else if (newPassword && !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/.test(newPassword)) {
             newErrors.newPassword = 'Password must contain at least 8 characters, one letter, one number, and one special character';
         }
 
-        if (!confirmNewPassword) {
-            newErrors.confirmNewPassword = 'Confirm new password is required';
-        } else if (newPassword !== confirmNewPassword) {
+        if (newPassword !== confirmNewPassword) {
             newErrors.confirmNewPassword = 'Passwords do not match';
         }
 
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            // Add save logic here if no errors
-            console.log('Form is valid. Submitting data...');
+            const formData = new FormData();
+            formData.append('firstName', firstName);
+            formData.append('lastName', lastName);
+            formData.append('current_password', currentPassword);
+            if (newPassword) {
+                formData.append('new_password', newPassword);
+            }
+            if (profilePicture) {
+                formData.append('profile_picture', profilePicture);
+            }
+
+            try {
+                const token = localStorage.getItem('token');
+                const response = await axios.post('http://localhost:5000/update_profile', formData, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                });
+                setMessage(response.data.message);
+                if (profilePicture) {
+                    setProfilePictureUrl(URL.createObjectURL(profilePicture));
+                }
+            } catch (error) {
+                setMessage(error.response?.data?.message || 'Error updating profile');
+            }
         }
     };
 
     const handleProfilePictureChange = (e) => {
         if (e.target.files && e.target.files[0]) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                setProfilePicture(event.target.result);
-            };
-            reader.readAsDataURL(e.target.files[0]);
+            setProfilePicture(e.target.files[0]);
+            setProfilePictureUrl(URL.createObjectURL(e.target.files[0]));
         }
     };
 
     const handleRemovePicture = () => {
         setProfilePicture(null);
+        setProfilePictureUrl('');
         if (fileInputRef.current) {
             fileInputRef.current.value = '';
         }
@@ -72,32 +113,31 @@ const Profile = () => {
         <div className="profile-container">
             <div className="profile-header">
                 <h1>My Profile</h1>
-              
             </div>
             <div className="profile-content">
                 <div className="profile-picture">
                     <div className="profile-picture-placeholder">
-                        {profilePicture ? (
-                            <img src={profilePicture} alt="Profile" className="profile-picture-image" />
+                        {profilePictureUrl ? (
+                            <img src={profilePictureUrl} alt="Profile" className="profile-picture-image" />
                         ) : (
                             <div className="profile-picture-placeholder-text">No profile picture</div>
                         )}
                     </div>
-                    <input 
-                        type="file" 
-                        accept="image/png, image/jpeg" 
-                        className="profile-picture-input" 
+                    <input
+                        type="file"
+                        accept="image/png, image/jpeg"
+                        className="profile-picture-input"
                         onChange={handleProfilePictureChange}
-                        ref={fileInputRef} 
+                        ref={fileInputRef}
                     />
                     <div className="profile-picture-actions">
-                        <button 
-                            className="profile-picture-button" 
+                        <button
+                            className="profile-picture-button"
                             onClick={() => fileInputRef.current && fileInputRef.current.click()}
                         >
-                            {profilePicture ? 'Update Pic' : 'Add Pic'}
+                            {profilePictureUrl ? 'Update Pic' : 'Add Pic'}
                         </button>
-                        {profilePicture && (
+                        {profilePictureUrl && (
                             <button className="profile-picture-button" onClick={handleRemovePicture}>
                                 Remove Pic
                             </button>
@@ -124,13 +164,13 @@ const Profile = () => {
                         {errors.lastName && <div className="error">{errors.lastName}</div>}
                     </label>
                     <label>
-                        Old password
+                        Current password
                         <input
                             type="password"
-                            value={oldPassword}
-                            onChange={(e) => setOldPassword(e.target.value)}
+                            value={currentPassword}
+                            onChange={(e) => setCurrentPassword(e.target.value)}
                         />
-                        {errors.oldPassword && <div className="error">{errors.oldPassword}</div>}
+                        {errors.currentPassword && <div className="error">{errors.currentPassword}</div>}
                     </label>
                     <label>
                         New password
@@ -153,6 +193,7 @@ const Profile = () => {
                     <button className="save-button" onClick={handleSaveChanges}>
                         Save changes
                     </button>
+                    {message && <div className="message">{message}</div>}
                 </div>
             </div>
         </div>
