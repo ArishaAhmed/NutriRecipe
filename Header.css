@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap');
 
 * {
@@ -6,11 +7,10 @@
   padding: 0;
 }
 
-
 .header {
   position: relative;
   width: 100%;
-  background-image: url('./BackImage.png'); 
+  background-image: url('./BackImage.png');
   background-size: cover;
   background-position: center;
   height: 250px;
@@ -20,12 +20,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(18, 211, 11, 0.9); 
+  background-color: rgba(18, 211, 11, 0.9);
   font-family: 'Inria Sans', sans-serif;
   padding: 10px 20px;
   width: 100%;
-  position: absolute; 
-  bottom: 0; 
+  position: absolute;
+  bottom: 0;
   height: 70px;
 }
 
@@ -51,7 +51,7 @@
 .navbar-links a {
   margin-left: 1rem;
   text-decoration: none;
-  color: #0a0101; 
+  color: #0a0101;
   transition: color 0.3s;
   font-size: 22px;
   font-weight: bold;
@@ -60,7 +60,7 @@
 }
 
 .navbar-links a:hover {
-  color: white; 
+  color: white;
 }
 
 .menu-icon {
@@ -68,38 +68,71 @@
   cursor: pointer;
 }
 
-.login-button {
-  position: relative;
-  padding-left: 92%;
-  top : 5%;
+.auth-button {
+
+  display: flex;
+  align-items: center;
 }
 
-.login-button a {
+.auth-button a,
+.auth-button button {
   text-decoration: none;
-  color: white; 
+  color: white;
   font-size: 25px;
   font-weight: bold;
   transition: color 0.3s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
 }
 
-.login-button a:hover {
-  color: rgb(190, 174, 174); 
+.auth-button a:hover,
+.auth-button button:hover {
+  color: rgb(190, 174, 174);
 }
 
+.profile-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 0rem;
+  /* margin-left: 5rem; */
+
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+}
+
+.initials {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #0a0101;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+}
 
 @media (max-width: 768px) {
   .navbar {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 70px; 
+    height: 70px;
   }
 
   .navbar-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px; 
+    top: 70px;
     right: 0;
     width: 20%;
     padding: 10px 20px;
@@ -107,7 +140,7 @@
 
   .navbar-links.active {
     display: flex;
-    background-color: rgba(153, 228, 150, 0.9); 
+    background-color: rgba(153, 228, 150, 0.9);
   }
 
   .navbar-links a {
@@ -124,22 +157,9 @@
     margin-top: 30px;
   }
 
-  .login-button {
-    position: relative;
-    padding-left: 90%;
-    top : 5%;
-  }
-  
-  .login-button a {
-    text-decoration: none;
-    color: white; 
+  .auth-button a,
+  .auth-button button {
     font-size: 20px;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  
-  .login-button a:hover {
-    color: rgb(190, 174, 174); 
   }
 }
 
@@ -151,12 +171,12 @@
   .navbar-brand img {
     height: 50px;
   }
-  
+
   .navbar-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px; 
+    top: 70px;
     right: 0;
     width: 25%;
     padding: 10px 20px;
@@ -164,23 +184,11 @@
 
   .navbar-links.active {
     display: flex;
-    background-color: rgba(153, 228, 150, 0.9); 
+    background-color: rgba(153, 228, 150, 0.9);
   }
-  .login-button {
-    position: relative;
-    padding-left: 80%;
-    top : 5%;
-  }
-  
-  .login-button a {
-    text-decoration: none;
-    color: white; 
+
+  .auth-button a,
+  .auth-button button {
     font-size: 16px;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  
-  .login-button a:hover {
-    color: rgb(190, 174, 174); 
   }
 }
