@@ -47,19 +47,19 @@ function Footer() {
               {socialMediaLinks.map((link, index) => (
                 <SocialMediaLink key={index} href={link.href} alt={link.alt} text={link.text} />
               ))}
-             
+
             </div>
           </div>
         </div>
         <div className="footer-column">
-        
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5e1473134063b1970fcd3cc8589f533f63ee618c61cf341a8fb13f2e0e1f309c?apiKey=1aa57a3556434780b9855b4a3f862b6d&" alt="NutriRecipes footer" className="footer-image" />
-          </div>
+
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5e1473134063b1970fcd3cc8589f533f63ee618c61cf341a8fb13f2e0e1f309c?apiKey=1aa57a3556434780b9855b4a3f862b6d&" alt="NutriRecipes footer" className="footer-image" />
         </div>
+      </div>
 
-      
 
-      
+
+
     </footer>
   );
 }
