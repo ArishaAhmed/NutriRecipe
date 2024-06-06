@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap');
 
 .container {
@@ -21,69 +22,31 @@
   padding: 0 20px;
 }
 
-@media (max-width: 991px) {
-  .main-content {
-    margin-top: 40px;
-  }
-}
-
 .title {
   color: #000;
   font: 500 60px Inria Sans, -apple-system, Roboto, Helvetica, sans-serif;
   font-weight: bolder;
 }
 
-@media (max-width: 991px) {
-  .title {
-    max-width: 100%;
-  }
-}
-
 .disease-categories {
   margin-top: 43px;
 }
 
-@media (max-width: 991px) {
-  .disease-categories {
-    max-width: 100%;
-    margin-top: 40px;
-  }
-}
-
 .disease-section {
-  gap: 20px;
   display: flex;
-}
-
-@media (max-width: 991px) {
-  .disease-section {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0px;
-  }
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .category {
   display: flex;
   flex-direction: column;
-  line-height: normal;
-  width: 100%; /* Adjust as needed */
-  margin-left: 2%; /* Adjust as needed */
-  margin-bottom: 30px;
-  height: 360px; /* Fixed height for category tile */
-}
-
-@media (max-width: 991px) {
-  .category {
-    width: 100%; /* Stretch horizontally on smaller screens */
-    margin-left: 0;
-    margin-bottom: 20px;
-    height: auto;
-  }
+  width: 30%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
 .category-card {
-  position: relative; /* Set position to relative for absolute positioning */
   border-radius: 24px;
   box-shadow: 0 4px 15px rgba(119, 72, 72, 0.25), 0 4px 12px rgba(0, 0, 0, 0.25), 0 13px 30px rgba(119, 89, 89, 0.2);
   border: 6px solid rgba(0, 0, 0, 0.34);
@@ -92,36 +55,31 @@
   font-size: 16px;
   color: #000;
   font-weight: 400;
-  width: 100%;
   padding: 29px 37px;
-  height: 100%; /* Ensure category card fills the entire height of the category */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth animation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
 }
 
 .category-card:hover {
-  transform: translateY(-10px); /* Make card pop up slightly */
-  box-shadow: 0 8px 20px rgba(119, 72, 72, 0.35), 0 8px 16px rgba(0, 0, 0, 0.35), 0 20px 40px rgba(119, 89, 89, 0.3); /* Add a deeper shadow on hover */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(119, 72, 72, 0.35), 0 8px 16px rgba(0, 0, 0, 0.35), 0 20px 40px rgba(119, 89, 89, 0.3);
 }
 
 .card-title {
-  font: 30px Inika, sans-serif;
+  font: 26px Inika, sans-serif;
   font-weight: bold;
 }
 
 .card-description {
   font-family: Inria Sans, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 24px;
   text-align: left;
   font-weight: bold;
-  flex-grow: 1; /* Allow description to expand to fill remaining space */
+  flex-grow: 1;
 }
 
 .view-recipes {
-  position: absolute; /* Position the button absolutely within its container */
-  bottom: 10px; /* Adjust vertical position as needed */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Center horizontally */
   font-family: Inder, sans-serif;
   font-weight: bolder;
   font-size: 16px;
@@ -129,19 +87,114 @@
   border-radius: 9px;
   background-color: #ffe054;
   padding: 10px;
-  transition: background-color 0.3s ease; /* Add transition for smooth background color change */
+  transition: background-color 0.3s ease;
+  align-self: center;
+  color: black;
 }
 
 .view-recipes:hover {
   background-color: #ffc005;
   cursor: pointer;
+
 }
 
+/* Media Queries */
+
+/* For screen sizes 991px and below */
 @media (max-width: 991px) {
+  .main-content {
+    margin-top: 40px;
+  }
+
+  .title {
+    max-width: 100%;
+    font-size: 40px;
+  }
+
+  .disease-categories {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .disease-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .category {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 20px;
+    height: 100%;
+  }
+
   .view-recipes {
     font-size: 14px;
-    margin-top: 10px; /* Add margin for separation */
-    position: static; /* Remove absolute positioning on smaller screens */
-    transform: none; 
+    margin-top: 10px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-description {
+    font-size: 12px;
+  }
+}
+
+/* For screen sizes between 967px and 1107px */
+@media (max-width: 1107px) and (min-width: 967px) {
+  .category-card {
+    padding: 20px 30px;
+    height: auto;
+  }
+
+  .card-description {
+    margin-top: 16px;
+    margin-bottom: 40px;
+  }
+
+  .view-recipes {
+    margin-top: 20px;
+  }
+
+  .card-title {
+    font-size: 24px;
+  }
+
+  .card-description {
+    font-size: 13px;
+  }
+}
+
+/* For screen sizes 439px and below */
+@media (max-width: 439px) {
+  .main-content {
+    padding: 0 10px;
+  }
+
+  .category {
+    width: 100%;
+    margin: 0 0 20px 0;
+    height: auto;
+  }
+
+  .category-card {
+    padding: 20px;
+    height: auto;
+  }
+
+  .view-recipes {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-description {
+    font-size: 12px;
   }
 }
