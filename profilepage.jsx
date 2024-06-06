@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import './profilepage.css';
@@ -21,7 +22,7 @@ const Profile = () => {
                 const token = localStorage.getItem('token');
                 const response = await axios.get('http://localhost:5000/secure', {
                     headers: {
-                        'Authorization': Bearer ${token},
+                        'Authorization': `Bearer ${token}`,
                     },
                 });
                 const userData = response.data?.user;
@@ -51,7 +52,7 @@ const Profile = () => {
             newErrors.lastName = 'Last name must contain only letters and be up to 15 characters';
         }
 
-        if (newPassword && !/^(?=.[A-Za-z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,20}$/.test(newPassword)) {
+        if (newPassword && !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/.test(newPassword)) {
             newErrors.newPassword = 'Password must contain at least 8 characters, one letter, one number, and one special character';
         }
 
@@ -77,7 +78,7 @@ const Profile = () => {
                 const token = localStorage.getItem('token');
                 const response = await axios.post('http://localhost:5000/update_profile', formData, {
                     headers: {
-                        'Authorization': Bearer ${token},
+                        'Authorization': `Bearer ${token}`,
                     },
                 });
                 setMessage(response.data.message);
