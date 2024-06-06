@@ -10,12 +10,12 @@ function ImageWrapper({ src, alt, className }) {
 
 
 function MyComponent() {
-    return (
-        <>
-          
-            <div className="container">
-             
-              <div className="about-us-content">
+  return (
+    <>
+
+      <div className="container">
+
+        <div className="about-us-content">
           <h1 className="about-us-title">About us</h1>
           <p className="about-us-description">
             At NutriRecipes, we're on a mission to redefine how people approach nutrition and health management. Unlike
@@ -45,10 +45,11 @@ function MyComponent() {
         </div>
         <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c76b3523d8c72b540ec4a89d09b24f6c4f726b471cc209ab48b1e0112918272e?apiKey=1aa57a3556434780b9855b4a3f862b6d&" alt="NutriRecipes about us" className="about-us-image" />
 
-                
-                
-                </div>
-                </>
-                )};
-                
+
+
+      </div>
+    </>
+  )
+};
+
 export default MyComponent;
