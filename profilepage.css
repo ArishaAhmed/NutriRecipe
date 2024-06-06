@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap');
 
 .profile-container {
     font-family: 'Inria Sans', sans-serif;
@@ -64,7 +64,8 @@
 
 .profile-picture-button,
 .save-button {
-    background-color: #fff7b2; /* Light yellow */
+    background-color: #fff7b2;
+
     border: 1px solid #01080f;
     color: #585858;
     padding: 5px 10px;
@@ -75,7 +76,8 @@
 
 .profile-picture-button:hover,
 .save-button:hover {
-    background-color: #e8d17e; /* Slightly darker yellow on hover */
+    background-color: #e8d17e;
+    
     color: #585858;
 }
 
@@ -100,19 +102,190 @@
 }
 
 
-/* Media query for small viewports */
+
 @media screen and (max-width: 578px) {
     .profile-content {
-        flex-direction: column; /* Change to a column layout */
-        align-items: center; /* Center items vertically */
+        flex-direction: column;
+    
+        align-items: center;
+        
     }
 
     .profile-picture {
-        margin-right: 0; /* Remove right margin */
-        margin-bottom: 0; /* Remove bottom margin */
+        margin-right: 0;
+        margin-bottom: 0;
+        
     }
 
     .profile-details {
-        width: 100%; /* Set width to 100% */
+        width: 100%;
+    
+    }
+} */
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap');
+
+.profile-container {
+    font-family: 'Inria Sans', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: flex-start;
+    /* Align heading to the left */
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.profile-header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.profile-content {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    /* Allow wrapping for smaller screens */
+}
+
+.profile-picture {
+    margin-right: 100px;
+    text-align: center;
+    position: relative;
+
+}
+
+.profile-picture-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* margin-bottom: 10px; */
+
+}
+
+.profile-picture-placeholder-text {
+
+    text-align: center;
+    color: #666;
+}
+
+.profile-picture-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-picture-input {
+    display: none;
+}
+
+
+.profile-picture-actions {
+    width: 160px;
+    display: flex;
+    margin-left: 0%;
+    /* border: 1px solid #01080f; */
+    flex-direction: column;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    /* align-items: center; */
+    margin-top: 10px;
+    box-sizing: border-box;
+    /* Center the buttons */
+}
+
+.profile-picture-button,
+.save-button {
+    background-color: #fff7b2;
+    /* Light yellow */
+    border: 1px solid #01080f;
+    color: #585858;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-left: 25px;
+}
+
+.profile-picture-button:hover,
+.save-button:hover {
+    background-color: #e8d17e;
+    /* Slightly darker yellow on hover */
+    color: #585858;
+    margin-left: 25px;
+}
+
+/* 
+.profile-details {
+    flex: 1;
+    /* Allow the profile details to take up remaining space */
+/* } */
+
+.profile-details label {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 25px;
+}
+
+.profile-details label input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #585858;
+    /* margin-left: 20px; */
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+/* Media query for small viewports */
+@media screen and (max-width: 578px) {
+    .profile-content {
+        flex-direction: column;
+        /* Change to a column layout */
+        align-items: center;
+        /* Center items vertically */
+    }
+
+    .profile-picture {
+        margin-right: 0;
+        /* Remove right margin */
+        margin-bottom: 20px;
+        /* Add bottom margin */
+    }
+
+    .profile-picture-actions {
+        margin-top: 0;
+        margin-bottom: 20px;
+        /* Move actions to the top */
+    }
+
+    .profile-details {
+        width: 100%;
+        /* Set width to 100% */
+    }
+
+    .profile-details label {
+        margin-bottom: 8px;
     }
 }
