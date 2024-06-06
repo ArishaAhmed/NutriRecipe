@@ -1,8 +1,9 @@
+
 import React from 'react';
 import './sidepanel.css';
 
 const SidePanel = ({ selectedCategory, setSelectedCategory }) => {
-  const categories = ['breakfast', 'lunch', 'dinner', 'dessert', 'snack'];
+  const categories = ['BreakFast', 'Lunch', 'Dinner', 'Dessert', 'Snack'];
 
   return (
     <div className="side-panel">
@@ -13,7 +14,7 @@ const SidePanel = ({ selectedCategory, setSelectedCategory }) => {
           className={selectedCategory === category ? 'selected' : ''}
           onClick={() => setSelectedCategory(category)}
         >
-          {category.charAt(0).toUpperCase() + category.slice(1)}
+          {category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()}
         </a>
       ))}
     </div>
